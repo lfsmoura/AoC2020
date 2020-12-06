@@ -17,7 +17,7 @@
         (reduce 
             (fn [sol elem] (cond
                 (not (nil? sol)) sol  
-                (.contains hashset (- num elem)) (list elem (- num elem))
+                (contains? hashset (- num elem)) (list elem (- num elem))
                 :else nil))
             nil ls)
     )

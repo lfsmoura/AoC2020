@@ -20,7 +20,7 @@
     (rest (re-find #"(\d+)\-(\d+) ([a-z])\: ([a-z]*)" str))
 )
 
-;;(test #'parse-input)
+(test #'parse-input)
 
 (defn count-occurrences
     {:test #(do
