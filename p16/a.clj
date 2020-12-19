@@ -75,24 +75,24 @@ nearby tickets:
     )}
     [input]
     (->> (map
-        (fn [ticket]
-            ; gets all the values in a ticket
-            (->> (map
-                    (fn [val]
-                        val
+            (fn [ticket]
+                ; gets all the values in a ticket
+                (->> (map
+                        (fn [val]
+                            val
+                        )
+                        (:vals ticket)
                     )
-                    (:vals ticket)
-                )
-                ; filter the ones that are not valid for any restriction
-                (filter (fn [val]
-                        (not-any? (partial valid val) (map :rule (:restriction input)))
+                    ; filter the ones that are not valid for any restriction
+                    (filter (fn [val]
+                            (not-any? (partial valid val) (map :rule (:restriction input)))
+                        )
                     )
                 )
             )
+            ; ignore your ticket
+            (rest (:ticket input))
         )
-        ; ignore your ticket
-        (rest (:ticket input))
-    )
         (flatten)
         (reduce +)
     )

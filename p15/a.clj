@@ -35,7 +35,6 @@
                     0
                     (- i (last-table last) 1)
                 )]
-                ;(do (println ">" i "last" last last-table)
                 (if (= i nth)
                     current
                     (recur 
@@ -44,7 +43,6 @@
                         (assoc last-table last (- i 1))
                     )
                 )
-                ;)
         )
     )
 )
